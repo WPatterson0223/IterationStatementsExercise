@@ -38,15 +38,22 @@
         public static void evenOrOdd()
         {
             Console.WriteLine("Enter a number to check if it is ever of odd.");
-            int userNumber;
-            int.TryParse(Console.ReadLine(), out userNumber);
-            if (userNumber % 2 == 0)
+            
+            var canParse = int.TryParse(Console.ReadLine(), out int userNumber);
+            if (canParse == true)
             {
-                Console.WriteLine($"{userNumber} is even!");
+                if (userNumber % 2 == 0)
+                {
+                    Console.WriteLine($"{userNumber} is even!");
+                }
+                else
+                {
+                    Console.WriteLine($"{userNumber} is odd!");
+                }
             }
             else
             {
-                Console.WriteLine($"{userNumber} is odd!");
+                Console.WriteLine("This is not a number!");
             }
         }
 
@@ -55,15 +62,22 @@
         public static void posOrNeg()
         {
             Console.WriteLine("Enter a number to check if it is positive or negative.");
-            int userNumber;
-            int.TryParse(Console.ReadLine(), out userNumber);
-            if (userNumber >= 0)
+            
+            var canParse = int.TryParse(Console.ReadLine(), out int userNumber);
+            if (canParse == true)
             {
-                Console.WriteLine($"{userNumber} is positive.");
+                if (userNumber >= 0)
+                {
+                    Console.WriteLine($"{userNumber} is positive.");
+                }
+                else
+                {
+                    Console.WriteLine($"{userNumber} is negative.");
+                }
             }
             else
             {
-                Console.WriteLine($"{userNumber} is negative.");
+                Console.WriteLine("This is not a number!");
             }
         }
 
@@ -74,15 +88,22 @@
         public static void votingAge()
         {
             Console.WriteLine("Enter you age to see if you are of voting age.");
-            int userAge;
-            int.TryParse(Console.ReadLine(), out userAge);
-            if(userAge >= 18)
+            
+            var canParse = int.TryParse(Console.ReadLine(), out int userAge);
+            if (canParse == true)
             {
-                Console.WriteLine("Congratulations you can vote!");
+                if (userAge >= 18)
+                {
+                    Console.WriteLine("Congratulations you can vote!");
+                }
+                else
+                {
+                    Console.WriteLine("You cant vote. Go home.");
+                }
             }
             else
             {
-                Console.WriteLine("You cant vote. Go home.");
+                Console.WriteLine("This is not a number!");
             }
         }
 
@@ -91,15 +112,22 @@
         public static void tenToten()
         {
             Console.WriteLine("Enter a Number to check if number is in range (-10 - 10)");
-            int userNumber;
-            int.TryParse(Console.ReadLine(), out userNumber);
-            if (userNumber >= -10 && userNumber <=10)
+            
+            var canParse = int.TryParse(Console.ReadLine(), out int userNumber);
+            if(canParse == true)
             {
-                Console.WriteLine($"{userNumber} is in range.");
+                if (userNumber >= -10 && userNumber <= 10)
+                {
+                    Console.WriteLine($"{userNumber} is in range.");
+                }
+                else
+                {
+                    Console.WriteLine($"{userNumber} is out of range.");
+                }
             }
             else
             {
-                Console.WriteLine($"{userNumber} is out of range.");
+                Console.WriteLine("This is not a number!");
             }
         }
         
@@ -107,11 +135,18 @@
         public static void multiplyThroughTwelve()
         {
             Console.WriteLine("Enter a number to multiply it by 1 - 12");
-            int userNumber;
-            int.TryParse(Console.ReadLine(), out userNumber);
-            for (int i = 1; i <= 12; i++)
+            
+            var canParse = int.TryParse(Console.ReadLine(), out int userNumber);
+            if (canParse == true)
             {
-                Console.WriteLine(userNumber * i);
+                for (int i = 1; i <= 12; i++)
+                {
+                    Console.WriteLine(userNumber * i);
+                }
+            }
+            else
+            {
+                Console.WriteLine("This is not a number!");
             }
         }
 
@@ -122,14 +157,19 @@
 
             byThrees();
 
-            int equalNumber1;
-            int equalNumber2;
             Console.WriteLine("Equal or not: Enter your first number.");
-            int.TryParse(Console.ReadLine(), out equalNumber1);
+            var canParse1 = int.TryParse(Console.ReadLine(), out int equalNumber1);
             Console.WriteLine("Equal or not: Enter your second number.");
-            int.TryParse(Console.ReadLine(), out equalNumber2);
-            equalOrNot(equalNumber1, equalNumber2);
-
+            var canParse2 = int.TryParse(Console.ReadLine(), out int equalNumber2);
+            if (canParse1 == false || canParse2 == false)
+            {
+                Console.WriteLine("One of these is not a number!");
+            }
+            else
+            {
+                equalOrNot(equalNumber1, equalNumber2);
+            }
+            
             evenOrOdd();
 
             posOrNeg();
